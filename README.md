@@ -22,24 +22,6 @@ All operations are secured using **JWT (JSON Web Token)** authentication.
 
 ---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## ⚙️ Features
 
 ✅ User registration and login with JWT token-based authentication  
