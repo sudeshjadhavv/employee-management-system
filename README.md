@@ -47,54 +47,6 @@ All operations are secured using **JWT (JSON Web Token)** authentication.
 
 ---
 
-## 🧩 Project Structure
-```
-employee-management-system/
-│
-├── 📦 src/
-│ └── 📁 main/
-│ ├── 📁 java/
-│ │ └── 📁 com/
-│ │ └── 📁 example/
-│ │ └── 📁 ems/
-│ │ ├── 📁 config/ # Security and application configurations
-│ │ │ └── SecurityConfig.java
-│ │ │
-│ │ ├── 📁 controller/ # Handles REST API endpoints
-│ │ │ ├── AuthController.java
-│ │ │ └── EmployeeController.java
-│ │ │
-│ │ ├── 📁 entities/ # JPA entities and relationships
-│ │ │ ├── User.java
-│ │ │ ├── Employee.java
-│ │ │ ├── Department.java
-│ │ │ └── Role.java
-│ │ │
-│ │ ├── 📁 repositories/ # Spring Data JPA repositories
-│ │ │ ├── UserRepository.java
-│ │ │ ├── EmployeeRepository.java
-│ │ │ └── DepartmentRepository.java
-│ │ │
-│ │ ├── 📁 security/ # JWT authentication and token management
-│ │ │ ├── JwtAuthenticationFilter.java
-│ │ │ └── JwtTokenProvider.java
-│ │ │
-│ │ ├── 📁 services/ # Business logic and service layer
-│ │ │ ├── AuthService.java
-│ │ │ ├── AuthServiceImpl.java
-│ │ │ ├── EmployeeService.java
-│ │ │ └── EmployeeServiceImpl.java
-│ │ │
-│ │ └── EmployeeManagementSystemApplication.java # Main Spring Boot class
-│ │
-│ └── 📁 resources/
-│ └── application.properties # Database and Hibernate configuration
-│
-├── 📄 pom.xml # Maven dependencies and build configuration
-└── 📄 README.md # Project documentation
-```
----
-
 ## 🧭 System Architecture
 
 The **Employee Management System** follows a layered architecture with the following components:
@@ -120,19 +72,17 @@ Before running this project, ensure you have installed:
 - **MySQL 8+**  
 - **Postman** *(optional, for API testing)*
 ### 🧩 Steps to Run Locally
+### 1️⃣ Clone the repository
+git clone https://github.com/sudeshjadhavv/employee-management-system.git
+### 2️⃣ Navigate to the project directory
+cd employee-management-system
 
-1. *Clone the repository*
-   ```
-   git clone https://github.com/sudeshjadhavv/employee-management-system.git
-   cd employee-management-system
-### 🗄️ Database Setup Guide
-
+### 3️⃣ Database Setup Guide
 Follow these steps to configure and connect your MySQL database with the Vehicle Service Management System:
-
-### 1️⃣ Create the Database
+###  Create the Database
 sql
 CREATE DATABASE employee_management;
-### 2️⃣ Configure application.properties
+###  Configure application.properties
 ```
 spring.datasource.url=jdbc:mysql://localhost:3306/employee_management
 spring.datasource.username=root
@@ -141,21 +91,17 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 ```
-# JWT Secret (use any random string)
+### JWT Secret (use any random string)
 ```
 app.jwt-secret=your_jwt_secret_key
 app.jwt-expiration=86400000
 ```
-
-### 3️⃣ Run the Application
-
+### 4️⃣ Run the Application
 bash
 mvn spring-boot:run
 
-### 4️⃣ Verify Database Tables
-
+### 5️⃣ Verify Database Tables
 Once the application starts successfully, open **MySQL Workbench** and verify that these tables are created:
-
 ```
 SHOW TABLES;
 +-----------------------+
@@ -167,14 +113,9 @@ SHOW TABLES;
 | roles                 |
 +-----------------------+
 ```
----
-
 ## 🧩 Database Design
-
 The **Employee Management System** database follows a relational schema with proper entity relationships and normalization.
-
 ### 🗂️ Entity-Relationship Overview
-
 ```text
 +------------------+        +------------------+        +------------------+
 |      users       |        |   departments    |        |      roles       |
@@ -199,7 +140,7 @@ The **Employee Management System** database follows a relational schema with pro
 | role_id (FK)       --> roles.id
 +------------------+
 ```
-### 5️⃣ Insert Sample Data (Admin, Department, Role)
+###  Insert Sample Data (Admin, Department, Role)
 ```
 After the database and tables are ready, insert sample users and roles to test the system.
 -- INSERT SAMPLE ADMIN USER
@@ -329,7 +270,52 @@ Use *Postman* to test each API.
 **Header**: Authorization: Bearer <your_token>
 
 ---
-
+## 🧩 Project Structure
+```
+employee-management-system/
+│
+├── 📦 src/
+│ └── 📁 main/
+│ ├── 📁 java/
+│ │ └── 📁 com/
+│ │ └── 📁 example/
+│ │ └── 📁 ems/
+│ │ ├── 📁 config/ # Security and application configurations
+│ │ │ └── SecurityConfig.java
+│ │ │
+│ │ ├── 📁 controller/ # Handles REST API endpoints
+│ │ │ ├── AuthController.java
+│ │ │ └── EmployeeController.java
+│ │ │
+│ │ ├── 📁 entities/ # JPA entities and relationships
+│ │ │ ├── User.java
+│ │ │ ├── Employee.java
+│ │ │ ├── Department.java
+│ │ │ └── Role.java
+│ │ │
+│ │ ├── 📁 repositories/ # Spring Data JPA repositories
+│ │ │ ├── UserRepository.java
+│ │ │ ├── EmployeeRepository.java
+│ │ │ └── DepartmentRepository.java
+│ │ │
+│ │ ├── 📁 security/ # JWT authentication and token management
+│ │ │ ├── JwtAuthenticationFilter.java
+│ │ │ └── JwtTokenProvider.java
+│ │ │
+│ │ ├── 📁 services/ # Business logic and service layer
+│ │ │ ├── AuthService.java
+│ │ │ ├── AuthServiceImpl.java
+│ │ │ ├── EmployeeService.java
+│ │ │ └── EmployeeServiceImpl.java
+│ │ │
+│ │ └── EmployeeManagementSystemApplication.java # Main Spring Boot class
+│ │
+│ └── 📁 resources/
+│ └── application.properties # Database and Hibernate configuration
+│
+├── 📄 pom.xml # Maven dependencies and build configuration
+└── 📄 README.md # Project documentation
+```
 ## 🏁 Project Conclusion
 
 The **Employee Management System** is a robust backend solution built using **Java Spring Boot**, focusing on efficient management of employees, departments, and roles within an organization.  
