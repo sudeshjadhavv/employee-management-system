@@ -21,51 +21,77 @@ All operations are secured using **JWT (JSON Web Token)** authentication.
 | *Version Control* | Git & GitHub |
 
 ---
+## 🌟 Key Features
 
-## ⚙️ Features
+✅ **User Authentication & Authorization** — Secure login and registration using JWT-based authentication with roles like `ADMIN` and `USER`.
 
-✅ User registration and login with JWT token-based authentication  
-✅ Secure role-based access for Admin and User  
-✅ CRUD operations for Employee (Add, Update, View, Delete)  
-✅ Relationship mapping between Employee, Department, and Role  
-✅ Exception handling and validation  
-✅ Passwords are encrypted using BCryptPasswordEncoder  
-✅ Stateless authentication using Spring Security  
+✅ **Role-Based Access Control** —  
+- `ADMIN` → Manage employees, departments, and roles  
+- `USER` → View personal profile and basic employee details  
+
+✅ **Employee Management** — Add, update, delete, and view employee details such as name, designation, salary, and department.
+
+✅ **Department Management** — Create and manage different departments and assign employees accordingly.
+
+✅ **Role Management** — Define and manage various job roles within the organization.
+
+✅ **Database Integration** — Persistent and relational data management using Hibernate and MySQL.
+
+✅ **RESTful APIs** — Clean, modular APIs for handling employee, department, and role operations.
+
+✅ **Input Validation & Exception Handling** — Robust validation and centralized exception handling for better API reliability.
+
+✅ **JWT Secured Endpoints** — All sensitive operations are protected using token-based security.
+
+✅ **Scalable Architecture** — Built using Spring Boot and layered architecture (Controller → Service → Repository).
 
 ---
 
 ## 🧩 Project Structure
 ```
-com.example.ems
-├── 📂 config
-│   └── SecurityConfig.java
+employee-management-system/
 │
-├── 📂 controller
-│   ├── AuthController.java
-│   └── EmployeeController.java
+├── 📦 src/
+│ └── 📁 main/
+│ ├── 📁 java/
+│ │ └── 📁 com/
+│ │ └── 📁 example/
+│ │ └── 📁 ems/
+│ │ ├── 📁 config/ # Security and application configurations
+│ │ │ └── SecurityConfig.java
+│ │ │
+│ │ ├── 📁 controller/ # Handles REST API endpoints
+│ │ │ ├── AuthController.java
+│ │ │ └── EmployeeController.java
+│ │ │
+│ │ ├── 📁 entities/ # JPA entities and relationships
+│ │ │ ├── User.java
+│ │ │ ├── Employee.java
+│ │ │ ├── Department.java
+│ │ │ └── Role.java
+│ │ │
+│ │ ├── 📁 repositories/ # Spring Data JPA repositories
+│ │ │ ├── UserRepository.java
+│ │ │ ├── EmployeeRepository.java
+│ │ │ └── DepartmentRepository.java
+│ │ │
+│ │ ├── 📁 security/ # JWT authentication and token management
+│ │ │ ├── JwtAuthenticationFilter.java
+│ │ │ └── JwtTokenProvider.java
+│ │ │
+│ │ ├── 📁 services/ # Business logic and service layer
+│ │ │ ├── AuthService.java
+│ │ │ ├── AuthServiceImpl.java
+│ │ │ ├── EmployeeService.java
+│ │ │ └── EmployeeServiceImpl.java
+│ │ │
+│ │ └── EmployeeManagementSystemApplication.java # Main Spring Boot class
+│ │
+│ └── 📁 resources/
+│ └── application.properties # Database and Hibernate configuration
 │
-├── 📂 entities
-│   ├── User.java
-│   ├── Employee.java
-│   ├── Department.java
-│   └── Role.java
-│
-├── 📂 repositories
-│   ├── UserRepository.java
-│   ├── EmployeeRepository.java
-│   └── DepartmentRepository.java
-│
-├── 📂 security
-│   ├── JwtAuthenticationFilter.java
-│   └── JwtTokenProvider.java
-│
-├── 📂 services
-│   ├── AuthService.java
-│   ├── AuthServiceImpl.java
-│   ├── EmployeeService.java
-│   └── EmployeeServiceImpl.java
-│
-└── EmployeeManagementSystemApplication.java
+├── 📄 pom.xml # Maven dependencies and build configuration
+└── 📄 README.md # Project documentation
 ```
 ---
 
@@ -96,11 +122,9 @@ Before running this project, ensure you have installed:
 ### 🧩 Steps to Run Locally
 
 1. *Clone the repository*
-   bash
+   ```
    git clone https://github.com/sudeshjadhavv/employee-management-system.git
    cd employee-management-system
-
-
 ### 🗄️ Database Setup Guide
 
 Follow these steps to configure and connect your MySQL database with the Vehicle Service Management System:
@@ -303,8 +327,6 @@ Use *Postman* to test each API.
 
 **GET** → http://localhost:8080/api/employees
 **Header**: Authorization: Bearer <your_token>
-
----
 
 ---
 
