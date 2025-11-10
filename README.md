@@ -63,3 +63,24 @@ com.example.ems
 │
 └── EmployeeManagementSystemApplication.java
 ```
+---
+
+## 🗄️ Database Setup Guide
+
+Follow these steps to configure and connect your MySQL database with the **Employee Management System**:
+
+### 1️⃣ Create the Database
+```sql
+CREATE DATABASE employee_management;
+```
+### 2️⃣ Configure application.properties
+spring.datasource.url=jdbc:mysql://localhost:3306/employee_management
+spring.datasource.username=root
+spring.datasource.password=your_password
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+
+# JWT Secret (use any random string)
+app.jwt-secret=your_jwt_secret_key
+app.jwt-expiration=86400000
