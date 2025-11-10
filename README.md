@@ -76,7 +76,6 @@ Before running this project, ensure you have installed:
 git clone https://github.com/sudeshjadhavv/employee-management-system.git
 ### 2️⃣ Navigate to the project directory
 cd employee-management-system
-
 ### 3️⃣ Database Setup Guide
 Follow these steps to configure and connect your MySQL database with the Vehicle Service Management System:
 ###  Create the Database
@@ -191,12 +190,14 @@ Use *Postman* to test each API.
 ## 📡 API Endpoints
 
 ### 🔑 Authentication
+
 | Method | Endpoint | Description |
 |:-------:|:----------|:-------------|
 | POST | `/api/auth/register` | Register a new user |
 | POST | `/api/auth/login` | Login and get JWT token |
 
 ### 👥 Employees
+
 | Method | Endpoint | Description | Access |
 |:-------:|:----------|:-------------|:---------|
 | GET | `/api/employees` | Get all employees | Admin/User |
@@ -206,12 +207,14 @@ Use *Postman* to test each API.
 | DELETE | `/api/employees/{id}` | Delete employee | Admin |
 
 ### 🏢 Departments
+
 | Method | Endpoint | Description | Access |
 |:-------:|:----------|:-------------|:---------|
 | GET | `/api/departments` | Get all departments | Admin/User |
 | POST | `/api/departments` | Add new department | Admin |
 
 ### 🎭 Roles
+
 | Method | Endpoint | Description | Access |
 |:-------:|:----------|:-------------|:---------|
 | GET | `/api/roles` | Get all roles | Admin/User |
